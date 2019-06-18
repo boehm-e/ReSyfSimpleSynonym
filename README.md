@@ -11,7 +11,7 @@ cd ReSyfSimpleSynonym
 ./download.sh
 ```
 
-# useage
+# usage
 
 ```python
 from ReSyfSimpleSynonym import Synonymes
