@@ -5,11 +5,13 @@
 
 import sys
 import xml.etree.ElementTree as ET
+import os
+# import sys
+# sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 try:
     import configparser as ConfigParser
 except ImportError:
     import ConfigParser
-import os
 
 #to order dictionary
 from collections import OrderedDict
@@ -106,11 +108,12 @@ def load(path=None):
         cf = fh.read().decode("utf-8")
         from io import StringIO
         buf = StringIO(cf)
-        
+
         config.readfp(buf)
         #append the local path from the config file to the current
-        xml_path = config.get('File_paths', 'resyf_path_xml_file')
-        serialized_path = config.get('File_paths', 'resyf_path_xml_file_serialized')
+        xml_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../', config.get('File_paths', 'resyf_path_xml_file'))
+        serialized_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../', config.get('File_paths', 'resyf_path_xml_file_serialized'))
+
         try:
             serialized_file = Path(serialized_path)
             my_abs_file = serialized_file.resolve()
@@ -126,6 +129,7 @@ def load(path=None):
     if(has_been_serialized == False):
         print("load xml")
         lexicalRes = pylmflib.input.xml_lmf.xml_lmf_read(xml_path)
+        print("done loading")
 
 
 
