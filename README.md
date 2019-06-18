@@ -1,3 +1,8 @@
+# CREDIT
+this module is based on [ReSyf](https://cental.uclouvain.be/resyf/) and all credit goes to :
+
+@dorian Ricci - Student at Université Catholique de Louvain-la-Neuve (UCL)
+
 # installation
 
 ```bash
